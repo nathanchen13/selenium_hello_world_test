@@ -18,7 +18,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class main {
 
-	public static void main(String[] args) throws MalformedURLException {
+	public static void SeleniumMain(String[] args) throws MalformedURLException {
 		String fileName="";
 		String DNS="";
 		String appVersion="";
