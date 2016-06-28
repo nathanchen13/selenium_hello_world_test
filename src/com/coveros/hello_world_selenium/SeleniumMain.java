@@ -21,7 +21,7 @@ public class SeleniumMain {
 	
 	public static void main(String[] args) throws MalformedURLException {
 		String fileName="";
-		String DNS="";
+		String DNS="172.31.2.116";
 		String appVersion="";
 		if (args[0]!=null && args[1]!=null){
 			fileName=args[0];
