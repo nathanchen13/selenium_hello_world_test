@@ -21,7 +21,7 @@ public class SeleniumMain {
 	
 	public static void main(String[] args) throws MalformedURLException {
 		String fileName="";
-		String DNS="172.31.2.116";
+		String DNS="";
 		String appVersion="";
 		if (args[0]!=null && args[1]!=null){
 			fileName=args[0];
@@ -43,8 +43,8 @@ public class SeleniumMain {
                 new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
-                if (line.contains("Public DNS Name")){
-                	DNS=line.substring(17);
+                if (line.contains("Private IP Address")){
+                	DNS=line.substring(20);
                 }
             }   
 
