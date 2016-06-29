@@ -72,15 +72,6 @@ public class SeleniumMain {
 		// And now use this to visit the app
         driver.get("http://"+DNS+":8080/hello-world-"+ appVersion + "/");
 
-//        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute 
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h2")));
-        
-        // Find the text input element by its name
-//        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-
-//        WebElement element = (new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
-        
-        
         
         WebElement element = driver.findElement(By.tagName("h2"));
 
@@ -90,7 +81,7 @@ public class SeleniumMain {
 
         String result = element.getText();
         if (result.contains("Hello World! The even number is:")){
-        	System.out.println("It's working!");
+        	System.out.println("It's working YAYYYYYYYYYYY!");
         	System.out.println(result);
         	System.exit(0);
         }else{
