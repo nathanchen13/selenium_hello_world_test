@@ -76,7 +76,7 @@ public class SeleniumMain {
         
         // Find the text input element by its name
 //        WebElement element = driver.findElement(By.tagName("h2"));
-        WebDriverWait wait = new WebDriverWait(driver, 120);
+        WebDriverWait wait = new WebDriverWait(driver, 60000);
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
 
         String result = element.getText();
