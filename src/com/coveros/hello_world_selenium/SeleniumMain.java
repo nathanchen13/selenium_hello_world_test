@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -69,15 +70,24 @@ public class SeleniumMain {
 		WebDriver driver = new RemoteWebDriver(new URL("http://172.31.2.67:4444/wd/hub"), capability);
 		
 		// And now use this to visit the app
-        driver.get("http://" +DNS+":8080/hello-world-"+ appVersion + "/");
+        driver.get("http://"+DNS+":8080/hello-world-"+ appVersion + "/");
+        try {
+			TimeUnit.MINUTES.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 
 //        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute 
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h2")));
         
         // Find the text input element by its name
-//        WebElement element = driver.findElement(By.tagName("h2"));
-        WebDriverWait wait = new WebDriverWait(driver, 60000);
-        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
+//        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+        WebElement element = driver.findElement(By.tagName("h2"));
+//        WebDriverWait wait = new WebDriverWait(driver, 60000);
+//        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
 
         String result = element.getText();
         if (result.contains("Hello World! The even number is:")){
