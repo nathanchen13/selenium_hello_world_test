@@ -81,7 +81,7 @@ public class SeleniumMain {
 
         String result = element.getText();
         if (result.contains("Hello World! The even number is:")){
-        	System.out.println("It's working YAYYYYYYYYYYY!");
+        	System.out.println("It's working!");
         	System.out.println(result);
         	System.exit(0);
         }else{
