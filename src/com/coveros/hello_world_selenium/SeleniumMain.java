@@ -71,6 +71,8 @@ public class SeleniumMain {
 		
 		// And now use this to visit the app
         driver.get("http://"+DNS+":8080/hello-world-"+ appVersion + "/");
+      
+        
         try {
 			TimeUnit.MINUTES.sleep(5);
 		} catch (InterruptedException e) {
@@ -85,8 +87,14 @@ public class SeleniumMain {
         // Find the text input element by its name
 //        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
-        WebElement element = driver.findElement(By.tagName("h2"));
-//        WebDriverWait wait = new WebDriverWait(driver, 60000);
+        WebElement element = (new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
+        
+        
+        
+//        WebElement element = driver.findElement(By.tagName("h2"));
+
+        
+        //        WebDriverWait wait = new WebDriverWait(driver, 60000);
 //        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
 
         String result = element.getText();
