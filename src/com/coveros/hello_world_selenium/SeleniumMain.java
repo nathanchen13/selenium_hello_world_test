@@ -70,19 +70,14 @@ public class SeleniumMain {
 		
 		// And now use this to visit the app
         driver.get("http://" +DNS+":8080/hello-world-"+ appVersion + "/");
-//        try {
-//			driver.wait(60000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
 //        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute 
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h2")));
         
         // Find the text input element by its name
 //        WebElement element = driver.findElement(By.tagName("h2"));
-        WebDriverWait wait = new WebDriverWait(driver, 40);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h2")));
+        WebDriverWait wait = new WebDriverWait(driver, 120);
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("h2")));
 
         String result = element.getText();
         if (result.contains("Hello World! The even number is:")){
