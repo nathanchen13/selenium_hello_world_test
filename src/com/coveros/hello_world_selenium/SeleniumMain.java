@@ -14,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class SeleniumMain {
@@ -68,9 +70,13 @@ public class SeleniumMain {
 		
 		// And now use this to visit the app
         driver.get("http://" +DNS+":8080/hello-world-"+ appVersion + "/");
-
+        
+        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h2")));
+        
         // Find the text input element by its name
         WebElement element = driver.findElement(By.tagName("h2"));
+        
         String result = element.getText();
         if (result.contains("Hello World! The even number is:")){
         	System.out.println("It's working!");
